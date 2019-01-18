@@ -1089,4 +1089,24 @@ abstract class RestModel implements ArrayAccess, JsonSerializable
         return str_replace(' ', '', $value);
     }
 
+    /**
+     * Convert date into correct format for REST api
+     *
+     * @param   string|DateTime $date
+     * @return  string
+     */
+    function formatDate($date){
+
+        $format = "Y-m-d\TH:m:s.B\Z";
+
+        if(is_string($date)){
+            $dt = new \DateTime($date);
+            return $dt->format($format);
+        }
+
+        if(is_object($date) && typeof($date) == "DateTime"){
+            return $date->format($format);
+        }
+    }
+
 }
