@@ -519,7 +519,7 @@ class Infusionsoft
             $datetime = new \DateTime($datetime, new \DateTimeZone('America/New_York'));
         }
 
-        return $datetime->format('Y-m-d\TH:i:s');
+        return $datetime->format('Y-m-d\TH:i:s.B\Z');
     }
 
     /**
